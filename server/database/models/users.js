@@ -1,0 +1,20 @@
+module.exports={
+	name:{
+		type:String,
+		lowercase:true,
+		unique:true,
+		required:true
+	},
+	mail:{
+		type:String,
+		lowercase:true,
+		unique:true,
+		required:true
+	},
+	password:{
+		type:String,
+		lowercase:true,
+		unique:true,
+		required:true
+	}
+}
