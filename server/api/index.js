@@ -19,6 +19,9 @@ apiRoutes.post('/users', function (req,res) {
 	return users.create(req,res);
 });
 
+apiRoutes.route('/users')
+	.post()
+
 apiRoutes.get('/users', function (req,res){
 	//methode de controller
 	return users.find(req,res);
