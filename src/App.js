@@ -3,6 +3,7 @@ import Navbar from './Navbar/Navbar.jsx';
 import Footer from './Footer/Footer.jsx';
 import Grid from './Grid/Grid.jsx';
 
+
 class App extends Component {
   render() {
     return (

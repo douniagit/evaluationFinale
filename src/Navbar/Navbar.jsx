@@ -1,6 +1,6 @@
 import React from 'react';
 import './Navbar.css';
-//import {Link} from 'react-router';
+import {Link} from 'react-router';
 
 class Navbar extends React.Component {
 
@@ -10,9 +10,10 @@ class Navbar extends React.Component {
 				    <div className="wrapper">
 						<div className="menu">
 							<ul>
-								<li><a>ACCUEIL</a></li>
+								<li><Link to="/">ACCUEIL</Link></li>
 								<li><a>ARTICLES</a></li>
-								<li><a>INSCRIPTION</a></li>
+								<li><Link to="/login">CONNEXION</Link></li>
+								<li><Link to="/suscribe">INSCRIPTION</Link></li>
 							</ul>
 						</div>
 						
