@@ -6,7 +6,7 @@ class Grid extends React.Component{
 	render(){
 		return(
 			<div className="grid">
-				<h1>LE PETIT BOUDOIR</h1>
+				<h1 style={{marginTop:"0", paddingTop:"20"}}>LE PETIT BOUDOIR</h1>
 				<Card/>
 			</div>
 		)

@@ -25,7 +25,7 @@ class Connexion extends React.Component{
 					</form>
 
 					<p>Vous n'avez pas encore de compte?</p>
-					<Link to="/suscribe"><button>INSCRIPTION</button></Link>
+					<Link to="/suscribe"><button style={{backgroundColor:"transparent", color:"#D20064", border:"2px solid #D20064"}}>INSCRIPTION</button></Link>
 				</div>
 				<Footer/>
 			</div>

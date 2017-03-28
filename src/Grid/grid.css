@@ -7,4 +7,11 @@
 h1,h2,h3{
 	color:#D20064;
 	text-align: center
+
+}
+
+@media(max-width:480px) {
+  .grid h1{
+  	font-size: 20px;
+  }
 }

@@ -36,9 +36,13 @@
 
 @media(max-width:480px) {
   .menu ul{
-  	font-size: 12px;
+  	font-size: 15px;
   	display: flex;
 	flex-direction: column;
 	align-items: center
+  }
+  .footer h3{
+  	font-size: 15px;
+  	margin-bottom: 0px;
   }
 }

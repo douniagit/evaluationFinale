@@ -6,8 +6,12 @@
   margin:auto;
   background-color: pink;
   border-radius: 30px;
+  margin-bottom:20px;
 }
-
+.cardContainer p{
+  width:100%;
+  text-align: center;
+}
 
 .cards {
   width: 400px;
@@ -58,7 +62,6 @@
   font-size: 14px;
   font-weight: 300;
   font-style: italic;
-  text-align: left;
   overflow-x: hidden;
 }
 
@@ -71,4 +74,9 @@ button{
   border-radius:10px;
   font-weight: 600;
   border:none;
+}
+.bouton-article{
+  display:flex;
+  justify-content: center;
+  padding-bottom:20px;
 }

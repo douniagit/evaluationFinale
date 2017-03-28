@@ -17,7 +17,9 @@ class Card extends React.Component{
               </div>)
             })}
         </div>
-        <button>TOUS LES ARTICLES</button>
+        <div className="bouton-article">
+          <button>TOUS LES ARTICLES</button>
+        </div>
       </div>
     )
   }
