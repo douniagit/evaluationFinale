@@ -6,9 +6,18 @@ class Card extends React.Component{
 
   constructor(props){
     super(props);
+    this.state={
+      show:false
+    }
     this.articlesSelected= this.articlesSelected.bind(this);
     this.articlesGlobal= this.articlesGlobal.bind(this);
 }
+  
+  handleClick(){
+    return this.setState({show:!this.state.show});
+    //si je mets true - je fixe le state à true au lieu de le varier
+  }
+
 
 
   articlesGlobal(){
@@ -32,17 +41,15 @@ class Card extends React.Component{
   
   render(){
 
-
-
     return(
       <div className="global">
         <div className="cardContainer">
             <p>Les articles du petit boudoir</p>
-            {this.articlesGlobal()}
+            {this.articlesSelected()}
         </div>
-        <div className="bouton-article">
-          <button>TOUS LES ARTICLES</button>
-          {this.articlesSelected()}
+       <div className="bouton-article">
+          <button onClick={this.handleClick.bind(this)}>TOUS LES ARTICLES</button>
+          <div className={"hide-"+this.state.show}>{this.articlesGlobal()}</div>
         </div>
       </div>
     )

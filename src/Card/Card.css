@@ -80,3 +80,6 @@ button{
   justify-content: center;
   padding-bottom:20px;
 }
+.hide-false{
+  display:none;
+}
