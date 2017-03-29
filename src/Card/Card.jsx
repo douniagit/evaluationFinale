@@ -18,8 +18,6 @@ class Card extends React.Component{
     //si je mets true - je fixe le state à true au lieu de le varier
   }
 
-
-
   articlesGlobal(){
          return articles.data.map(article=>{
               return(
@@ -38,7 +36,7 @@ class Card extends React.Component{
         random[Math.floor(Math.random() * random.length)]
         ];
       }
-  
+
   render(){
 
     return(
