@@ -1,1 +1,1 @@
-web node monboudoir/server/server.js
+web node server/server.js
