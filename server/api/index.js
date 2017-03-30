@@ -57,32 +57,14 @@ apiRoutes.put('/ressources', function (req,res){
 	return ressources.update(req,res);
 });
 
-// apiRoutes.post('/ressources', function (req,res){
-// 	//methode de controller
-// 	ressources.add(req,res);
-// });
-
 apiRoutes.delete('/ressources', function (req,res){
 	//methode de controller
 	return ressources.delete(req,res);
 });
-//----------------Suggestions--------------
-
-apiRoutes.post('/suggestions', function (req,res){ //ou .get?
-	//methode de controller
-	return suggestions.create(req,res);
-});
-
-apiRoutes.delete('/suggestions', function (req,res){
-	//methode de controller
-
-	return suggestions.delete(req,res);
-});
 
 // module.exports={
 // 	users:users,
-// 	ressources:ressources,
-//  suggestions:suggestions
+// 	ressources:ressources
 // };
 
 module.exports = apiRoutes;

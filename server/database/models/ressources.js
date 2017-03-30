@@ -3,5 +3,6 @@ module.exports={
 	description:String,
 	lien:String,
 	images:String,
-	
+	likes:[Number],
+	comments:[String]
 }
