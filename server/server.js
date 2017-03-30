@@ -1,9 +1,13 @@
-//notre serveur http
+//notre serveur http 
 const express = require('express');
-const app = express();
+const morgan = require('morgan');
 const api = require("./api");
 const path = require('path');
+const PORT= process.env.PORT || 9000;
+const app = express();
 
+//pour creer un logger
+app.use(morgan(':remote-addr - :remote-user [:date[clf]] ":method :url HTTP/:http-version" :status :res[content-length] :response-time ms'));
 //pour lier le index.html
 app.use(express.static(path.resolve(__dirname, '..', 'build')));
 
@@ -17,12 +21,12 @@ app.use( function(request, response, next) {
 
 app.use('/api', api);
 
-//pour lire le index.html
+//pour lire le index.html, et react-router renvoie la route au client
 app.get('*', (req, res) => {
   res.sendFile(path.resolve(__dirname, '..', 'build', 'index.html'));
 });
 
-
-app.listen(3000,(err)=>{
+//server side rendering, faire un port différent de react (front)
+app.listen(9000,(err)=>{
 	console.log('blog fictif');
 })
