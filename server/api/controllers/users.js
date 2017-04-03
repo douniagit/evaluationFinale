@@ -40,30 +40,26 @@ const users = {
 
 	update(req,res){
 		console.log('je suis update de user');
-		Users.update({_id:req.params._id})
-		.then(data =>{
-			if(req.body.name) data.name=req.body.name;
- 			if(req.body.firstName) data.username=req.body.username;
- 			if(req.body.password) data.password=req.body.password;
-			if(req.body.avatar) data.avatar=req.body.avatar;
-			if(req.body.mail) data.mail=req.body.mail;
+		Users.findByIdAndUpdate({_id:req.params.id})
+		.then(user =>{
+			user.name=req.body.name;
+ 			user.firstName=req.body.firstName;
+ 			user.password=req.body.password;
+			user.avatar=req.body.avatar;
+			user.mail=req.body.mail;
+			user.save()
+			res.status(200).send("user mis à jour");
 		})
 		.catch(err=>{
 			res.status(500).send("operation failed"+ err)
-		}),
-		Users.save()
-		.then(data=>{
-			res.status(200).send("user modifié" + data);
-		})		
-		.catch(err=>{
-			res.status(500).send("operation failed"+ err)
 		})
-	},//KO!!!!!!! fonctionne pas sur postman			
+		
+	}, //ok fonctionne sur postman			
 
 	delete(req,res){
-		Users.remove({mail:req.params.mail})
+		Users.findByIdAndRemove({_id:req.params.id})
 		.then(data=>{
-			res.status(200).json({message:"supprimé"});
+			res.status(200).json({profil:"supprimé"});
 		}) 
 		.catch(err=>{
 			res.status(500).send("operation failed"+ err)

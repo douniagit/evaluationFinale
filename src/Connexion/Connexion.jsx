@@ -13,11 +13,11 @@ class Connexion extends React.Component{
 					<form action="/api/users" method="post">
 						<div>
 							<label>Nom d'utilisateur</label>
-							<input type="text" id="name" placeholder="ton nom"/>
+							<input type="text" id="mail" placeholder="ton mail"/>
 						</div>
 						<div>
 							<label>Mot de passe</label>
-							<input type="text" id="mdp" placeholder="ton password"/>
+							<input type="text" id="password" placeholder="ton password"/>
 						</div>
 						<div className="button">
 							<button type="submit">CONNEXION</button>

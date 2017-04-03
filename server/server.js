@@ -27,6 +27,6 @@ app.get('*', (req, res) => {
 });
 
 //server side rendering, faire un port différent de react (front)
-app.listen(9000,(err)=>{
+app.listen(PORT,(err)=>{
 	console.log('blog fictif');
 })

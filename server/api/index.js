@@ -16,20 +16,18 @@ apiRoutes.use(bodyParser.json());
 apiRoutes.get('/users', /*auth.requireToken,*/ users.find);
 apiRoutes.get('/users/:mail', users.findByMail);
 apiRoutes.post('/users/create', users.create);
-apiRoutes.delete('/users/remove/:mail', users.delete);
+apiRoutes.delete('/users/remove/:id',users.delete);
 apiRoutes.put('/users/edit/:id', users.update);
 
 //problemes sur routes:
-
-//le post est reussi seulement si je me mets en raw avec test json sur postman 
+//le post et put sont reussis seulement si je me mets en raw avec test json sur postman 
 //quand je crée un profil qui a le meme nom, ça ne passe pas
-//mon put ne marche pas, demande fonction callback
-
 
 //------------------Ressources--------------------
 apiRoutes.get('/ressources', ressources.find);
-apiRoutes.get('/users/:id', ressources.findById);
+apiRoutes.get('/ressources/:id', ressources.findById);
 apiRoutes.post('/ressources/create', ressources.create);
+apiRoutes.put('/ressources/edit/:id', ressources.update);
 apiRoutes.delete('/ressources/remove/:id', ressources.delete);
 
 

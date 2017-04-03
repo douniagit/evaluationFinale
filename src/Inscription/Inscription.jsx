@@ -10,26 +10,26 @@ class Inscription extends React.Component{
 			<div className="inscription">
 				<Navbar/>
 				<div className='formulaire'>
-					<form action="/api/users" method="post">
+					<form action="http://localhost:3000/api/users/create" method="post">
 						<div>
 							<label>Votre adresse mail</label>
-							<input type="text" id="name" placeholder="ton nom"/>
+							<input type="text" id="mail" placeholder="ton mail"/>
 						</div>
 						<div>
 							<label>Renseignez un nouveau mot de passe</label>
-							<input type="text" id="name" placeholder="ton nom"/>
+							<input type="text" id="password" placeholder="ton mot de passe"/>
 						</div>
 						<div>
 							<label>Confirmez ce mot de passe</label>
-							<input type="text" id="name" placeholder="ton nom"/>
+							<input type="text" id="password" placeholder="confirme ton mot de passe"/>
 						</div>
 						<div>
 							<label>Nom</label>
-							<input type="text" id="mdp" placeholder="ton password"/>
+							<input type="text" id="name" placeholder="ton nom"/>
 						</div>
 						<div>
 							<label>Prenom</label>
-							<input type="text" id="mdp" placeholder="ton password"/>
+							<input type="text" id="firstName" placeholder="ton prénom"/>
 						</div>
 						<div>
 							<label>Votre avatar</label>
