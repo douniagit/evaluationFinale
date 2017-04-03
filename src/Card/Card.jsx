@@ -1,7 +1,7 @@
 import React from "react";
 import articles from './../data/articles.js';
 import './Card.css';
-import {Link} from 'react-router';
+//import {Link} from 'react-router';
 
 class Card extends React.Component{
 
@@ -22,12 +22,14 @@ class Card extends React.Component{
   articlesGlobal(){
          return articles.data.map(article=>{
               return(
-              <Link key={article.id} to={`/article/:id`} activeClassName="active">
+             // <Link key={article.id} to={`/article/:id`} activeClassName="active">
               <div className="cards">
                 <img className="img" src={article.images} alt="img"/>
                 <h2 className="title">{article.name}</h2>
                 <p className="desc">{article.description}</p>
-             </div></Link>)
+             </div>
+            // </Link>
+             )
           })
       }
 
@@ -45,15 +47,15 @@ class Card extends React.Component{
       <div className="global">
         <div className="cardContainer">
             <p>Les articles du petit boudoir</p>
-          <Link to={`/article/${this.props.id}`}>
+         {/*} <Link to={`/article/${this.props.id}`}>*/}
             {this.articlesSelected()}
-          </Link>
+          {/* </Link>*/}
         </div>
        <div className="bouton-article">
           <button onClick={this.handleClick.bind(this)}>TOUS LES ARTICLES</button>
-         <Link to={`/article/${this.props.id}`}>
+       {/*  <Link to={`/article/${this.props.id}`}>*/}
             <div className={"hide-"+this.state.show}>{this.articlesGlobal()}</div>
-        </Link>
+        {/* </Link>*/}
         </div>
       </div>
       

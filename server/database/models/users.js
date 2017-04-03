@@ -5,6 +5,12 @@ module.exports={
 		unique:true,
 		required:true
 	},
+	firstName:{
+		type:String,
+		lowercase:true,
+		unique:true,
+		required:true
+	},
 	mail:{
 		type:String,
 		lowercase:true,
@@ -16,5 +22,9 @@ module.exports={
 		lowercase:true,
 		unique:true,
 		required:true
+	},
+	avatar:{
+		data: Buffer, 
+		contentType: String
 	}
 }

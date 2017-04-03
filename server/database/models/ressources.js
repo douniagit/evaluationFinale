@@ -4,5 +4,12 @@ module.exports={
 	lien:String,
 	images:String,
 	likes:[Number],
-	comments:[String]
+	date: { type: Date, default: Date.now },
+	comments:[{
+		auteur:String,
+		body:String,
+		date: { type: Date, default: Date.now }
+		}],
 }
+
+//mon date ne marche pas

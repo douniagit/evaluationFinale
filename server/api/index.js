@@ -3,7 +3,7 @@
 const users = require('./controllers/users');
 const ressources= require('./controllers/ressources');
 const bodyParser=require('body-parser');
-
+const auth = require('./controllers/auth');
 const { Router } = require('express');
 
 const apiRoutes = new Router();
@@ -13,58 +13,24 @@ apiRoutes.use(bodyParser.urlencoded({extended:false}));
 apiRoutes.use(bodyParser.json());
 
 //------------------users--------------------
+apiRoutes.get('/users', /*auth.requireToken,*/ users.find);
+apiRoutes.get('/users/:mail', users.findByMail);
+apiRoutes.post('/users/create', users.create);
+apiRoutes.delete('/users/remove/:mail', users.delete);
+apiRoutes.put('/users/edit/:id', users.update);
 
-apiRoutes.post('/users', function (req,res) {
-	//methode de controller
-	return users.create(req,res);
-});
+//problemes sur routes:
 
-apiRoutes.route('/users')
-	.post()
+//le post est reussi seulement si je me mets en raw avec test json sur postman 
+//quand je crée un profil qui a le meme nom, ça ne passe pas
+//mon put ne marche pas, demande fonction callback
 
-apiRoutes.get('/users', function (req,res){
-	//methode de controller
-	return users.find(req,res);
-});
-
-apiRoutes.put('/users', function (req,res){
-
-	return users.update(req,res);
-});
-
-apiRoutes.delete('/users', function (req,res){
-
-	return users.delete(req,res);
-});
 
 //------------------Ressources--------------------
+apiRoutes.get('/ressources', ressources.find);
+apiRoutes.get('/users/:id', ressources.findById);
+apiRoutes.post('/ressources/create', ressources.create);
+apiRoutes.delete('/ressources/remove/:id', ressources.delete);
 
-apiRoutes.post('/ressources', function (req,res){ //ou .get?
-	//methode de controller
-	console.log('test post : ', ressources);
-	return ressources.create(req,res);
-});
-
-apiRoutes.get('/ressources', function (req,res){
-	//methode de controller
-	console.log('Bonjour je suis la route get ressources');
-	return ressources.find(req,res);
-	console.log('Je suis la méthode find.');
-});
-
-apiRoutes.put('/ressources', function (req,res){
-	//methode de controller
-	return ressources.update(req,res);
-});
-
-apiRoutes.delete('/ressources', function (req,res){
-	//methode de controller
-	return ressources.delete(req,res);
-});
-
-// module.exports={
-// 	users:users,
-// 	ressources:ressources
-// };
 
 module.exports = apiRoutes;

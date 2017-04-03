@@ -1,13 +1,11 @@
 'use strict';
 
-const db=require('../../database');
-//apres params on pourrait ecrire une ofnction callback, mais
-//mongoose nous permet de faire des promesses
+const Ressources=require('../../database').ressources;
 
 const ressources={
-	create: (req,res)=>{
+	create(req,res){
 		console.log('req.body : ', JSON.stringify(req.body));
-		let newRessource= new db.ressources(req.body);
+		let newRessource= new Ressources(req.body);
 		newRessource.save()
 		.then(data =>{
 			console.log('ok : ', JSON.stringify(data));
@@ -18,10 +16,10 @@ const ressources={
 			res.status(500).send('donnee failed:\n' +err)
 		});
 	},
-	find:function(req,res){
-		console.log('PARAAAAMS :', req.params);
-		console.log('QUERYYYY  :', req.query.name);
-		db.ressources.find({name:req.query.name})
+
+	find(req,res){
+		console.log('Bonjour je suis find de ressources');
+		Ressources.find({})
 		.then(data=>{
 			res.status(200).send(data);
 		})
@@ -30,8 +28,8 @@ const ressources={
 		})
 	},
 
-	findById: function(req,res){
-		db.ressources.findById(req.params.id) //({id:req.params})
+	findById(req,res){
+		Ressources.find({_id:req.params._id})
 		.then(data=>{
 			res.status(200).send(data);
 		})
@@ -39,28 +37,11 @@ const ressources={
 			res.status(500).send("operation failed"+ err)
 		})
 	},
-	findByKeywords:function(req,res){
-		db.ressources.findByKeywords(req.params.keywords)//({keywords:req.params})
-		.then(data=>{
-			res.status(200).send(data);
-		})
-		.catch(err=>{
-			res.status(500).send("operation failed"+ err)
-		})
-	},
-	update: (req,res)=>{
-		db.ressources.update({name:req.params})
-		.then(data=>{
-			res.status(200).send(data);
-		})
-		.catch(err=>{
-			res.status(500).send("operation failed"+ err)
-		})
-	},
+	
 	delete: (req,res)=>{
-		db.ressources.delete({name:req.params})
+		Users.remove({_id:req.params._id})
 		.then(data=>{
-			res.status(200).send(data);
+			res.status(200).send("article supprimé" + data);
 		})
 		.catch(err=>{
 			res.status(500).send("operation failed"+ err)
@@ -68,5 +49,8 @@ const ressources={
 	}
 
 }
+
+
+
 
 module.exports=ressources;
