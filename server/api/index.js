@@ -14,14 +14,10 @@ apiRoutes.use(bodyParser.json());
 
 //------------------users--------------------
 apiRoutes.get('/users', /*auth.requireToken,*/ users.find);
-apiRoutes.get('/users/:mail', users.findByMail);
+apiRoutes.get('/users/:id', users.findById);
 apiRoutes.post('/users/create', users.create);
 apiRoutes.delete('/users/remove/:id',users.delete);
 apiRoutes.put('/users/edit/:id', users.update);
-
-//problemes sur routes:
-//le post et put sont reussis seulement si je me mets en raw avec test json sur postman 
-//quand je crée un profil qui a le meme nom, ça ne passe pas
 
 //------------------Ressources--------------------
 apiRoutes.get('/ressources', ressources.find);

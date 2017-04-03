@@ -44,6 +44,8 @@ const ressources={
  			data.description=req.body.description;
  			data.lien=req.body.lien;
 			data.images=req.body.images;
+			data.comments.auteur=req.body.auteur;
+			data.comments.body=req.body.body;
 			data.save()
 			res.status(200).send("data mis à jour");
 		})

@@ -26,10 +26,10 @@ const users = {
 		})
 	}, //ok fonctionne sur postman
 
-	findByMail(req,res){
-		console.log('Bonjour je suis le findByMail de user.');
+	findById(req,res){
+		console.log('Bonjour je suis le findById de user.');
 		//Users.find({mail: req.body.mail})
-		Users.find({mail:req.params.mail})
+		Users.find({_id:req.params.id})
 		.then(data=>{
 			res.status(200).send(data);
 		})
@@ -47,8 +47,8 @@ const users = {
  			user.password=req.body.password;
 			user.avatar=req.body.avatar;
 			user.mail=req.body.mail;
-			user.save()
-			res.status(200).send("user mis à jour");
+			//user.save()
+			res.status(200).send("user mis à jour" + user);
 		})
 		.catch(err=>{
 			res.status(500).send("operation failed"+ err)
