@@ -18,8 +18,7 @@ const Routes = (props) => (
     <Route path="/admin" component={HomePage}/>
     <Route path="/edit" component={Edition}/>
    	<Route path="/creation" component={CreationArticle}/>
-    <Route path="*" component={NotFound}/>
-    
+    <Route path="*" component={NotFound}/> 
   </Router>
 );
 

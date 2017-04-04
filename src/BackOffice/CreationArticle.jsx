@@ -5,6 +5,7 @@ import NavAdmin from './NavAdmin.jsx';
 import {Link} from 'react-router';
 
 class CreationArticle extends Component {
+  
   render() {
     return (
       <div className="creation">
@@ -24,10 +25,10 @@ class CreationArticle extends Component {
 							<textarea type="text" id="description" name="description" placeholder="ecris ton article"/>
 						</div>
 						<div className="button">
-							<button type="submit">sauvegarder</button>
+							<button type="submit" value="submit">sauvegarder</button>
 						</div>
 						<div className="button">
-							<button type="submit">annuler</button>
+							<button type="reset" value="reset">annuler</button>
 						</div>
 					</form>
        	<Footer/>
