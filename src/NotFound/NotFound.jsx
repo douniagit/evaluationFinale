@@ -7,7 +7,7 @@ class NotFound extends React.Component{
 		return(
 			<div className="content">
 				<Navbar/>
-				<h1> Erreur 404, Not found :(</h1>
+				<p> Erreur 404, Not found :( </p>
 				<Footer/>
 			</div>
 

@@ -1,6 +1,5 @@
 'use strict';
 
-//notre modele User fichier data + le modele = (database).users
 const Users = require('../../database').users;
 const bcrypt = require('bcrypt');
 const jsonwebtoken= require('jsonwebtoken');
@@ -8,15 +7,13 @@ const moment= require('moment');
 
 
 function formatPassword(user){
-// req.body{mail:'', pws:'123'}
-//changer l'objet ci dessus en {mail:'',pws:&é"ç'(àç"}
 
 const salt=bcrypt.genSaltSync(10);
 const hash=bcrypt.hashSync(user.mail+user.password,salt);
 return{
 	mail:user.mail,
 	hash:hash
-}
+	}
 
 }
 
@@ -30,7 +27,7 @@ function generateToken(user){
 	return jwt.sign(payload,'app_secret');
 }
 
-const auth =  {
+const auth = {
 	//s'inscrire
 	register(req,res){
 
@@ -49,7 +46,7 @@ const auth =  {
 	login (req,res){
 		Users.find({mail:req.body.mail})
 		.then(users =>{
-			if(user.length >0 && bcrypt.compareSync(req.body.mail+req.body.password, user[0].hash)){
+			if(user.length > 0 && bcrypt.compareSync(req.body.mail+req.body.password, user[0].hash)){
 				const token=generateToken(users[0]);
 				res.send(token);
 			}

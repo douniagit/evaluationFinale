@@ -1,7 +1,7 @@
 import React from 'react';
 import Navbar from '../Navbar/Navbar.jsx';
 import Footer from '../Footer/Footer.jsx';
-import "./connexion.css";
+//import './connexion.css';
 import {Link} from 'react-router';
 
 class Connexion extends React.Component{
@@ -12,7 +12,7 @@ class Connexion extends React.Component{
 				<div className='formulaire'>
 					<form action="/api/users" method="post">
 						<div>
-							<label>Nom d'utilisateur</label>
+							<label>mail</label>
 							<input type="text" id="mail" placeholder="ton mail"/>
 						</div>
 						<div>
@@ -24,8 +24,8 @@ class Connexion extends React.Component{
 						</div>
 					</form>
 
-					<p>Vous n'avez pas encore de compte?</p>
-					<Link to="/suscribe"><button style={{backgroundColor:"transparent", color:"#D20064", border:"2px solid #D20064"}}>INSCRIPTION</button></Link>
+					<p>Vous n' avez pas encore de compte?</p>
+					<Link to="/suscribe"><button>INSCRIPTION</button></Link>
 				</div>
 				<Footer/>
 			</div>

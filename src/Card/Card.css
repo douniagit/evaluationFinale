@@ -16,7 +16,7 @@
 .cards {
   width: 400px;
   height: 400px;
-  margin-bottom:50px;/*temporaire*/
+  margin-bottom:50px;
   background-color: white;
   border:10px solid lightgrey;
   transition:box-shadow 0.1s ease-in-out;

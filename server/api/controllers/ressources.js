@@ -4,15 +4,15 @@ const Ressources=require('../../database').ressources;
 
 const ressources={
 	create(req,res){
-		console.log('req.body : ', JSON.stringify(req.body));
+		console.log('Bonjour je suis le create de ressources');
 		let newRessource= new Ressources(req.body);
 		newRessource.save()
 		.then(data =>{
-			res.status(200).send('donnee ajoutee: \n' +data)
+			res.status(200).send('donnee ajoutee: \n' +data);
 		})
 		.catch(err =>{
-			res.status(500).send('donnee failed:\n' +err)
-		});
+			res.status(500).send('donnee failed:\n' +err);
+		})
 	},//ok fonctionne sur postman
 
 	find(req,res){
@@ -22,7 +22,7 @@ const ressources={
 			res.status(200).send(data);
 		})
 		.catch(err=>{
-			res.status(500).send("operation failed"+ err)
+			res.status(500).send("operation failed"+ err);
 		})
 	},//on fonctionne sur postman
 
@@ -32,7 +32,7 @@ const ressources={
 			res.status(200).send(data);
 		})
 		.catch(err=>{
-			res.status(500).send("operation failed"+ err)
+			res.status(500).send("operation failed"+ err);
 		})
 	},//on fonction sur postman
 	
@@ -40,17 +40,17 @@ const ressources={
 		console.log('je suis update de ressources');
 		Ressources.findByIdAndUpdate({_id:req.params.id})
 		.then(data =>{
-			data.name=req.body.name;
- 			data.description=req.body.description;
- 			data.lien=req.body.lien;
-			data.images=req.body.images;
-			data.comments.auteur=req.body.auteur;
-			data.comments.body=req.body.body;
+			data.name=req.body.name,
+ 			data.description=req.body.description,
+ 			data.lien=req.body.lien,
+			data.images=req.body.images,
+			data.comments.auteur=req.body.auteur,
+			data.comments.body=req.body.body,
 			data.save()
 			res.status(200).send("data mis à jour");
 		})
 		.catch(err=>{
-			res.status(500).send("operation failed"+ err)
+			res.status(500).send("operation failed"+ err);
 		})
 		
 	},
@@ -62,13 +62,10 @@ const ressources={
 			res.status(200).send("article supprimé" + data);
 		})
 		.catch(err=>{
-			res.status(500).send("operation failed"+ err)
+			res.status(500).send("operation failed"+ err);
 		})
 	}//ok fonctionne sur postman
-	
 }
-
-
 
 
 module.exports=ressources;

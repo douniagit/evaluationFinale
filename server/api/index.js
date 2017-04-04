@@ -7,16 +7,15 @@ const auth = require('./controllers/auth');
 const { Router } = require('express');
 
 const apiRoutes = new Router();
-// pour définir les routes
 
 apiRoutes.use(bodyParser.urlencoded({extended:false}));
 apiRoutes.use(bodyParser.json());
 
 //------------------users--------------------
-apiRoutes.get('/users', /*auth.requireToken,*/ users.find);
+apiRoutes.get('/users', auth.requireToken, users.find);
 apiRoutes.get('/users/:id', users.findById);
 apiRoutes.post('/users/create', users.create);
-apiRoutes.delete('/users/remove/:id',users.delete);
+apiRoutes.delete('/users/remove/:id', users.delete);
 apiRoutes.put('/users/edit/:id', users.update);
 
 //------------------Ressources--------------------

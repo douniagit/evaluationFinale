@@ -22,9 +22,5 @@ module.exports={
 		lowercase:true,
 		unique:true,
 		required:true
-	},
-	avatar:{
-		data: Buffer, 
-		contentType: String
 	}
 }

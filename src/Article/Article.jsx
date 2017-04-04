@@ -8,7 +8,7 @@ class Article extends React.Component{
 	render(){
 
 		const id=this.props.params.id;
-		const articleX = datas.filter((data)=>data.id === id)[0];
+		const articleX = datas.filter((data)=> data.id === id)[0];
 			if(!articleX){
 				return <NotFound/>;
 			}
