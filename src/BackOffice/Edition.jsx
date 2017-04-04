@@ -27,7 +27,11 @@ class Edition extends Component {
     }
 
     deleteApi(info){
-      axios.delete(`/ressources/remove/`+ info)
+      axios.delete(`/api/ressources/remove/`+ info)
+        .then(data=>{
+          this.callingApi();
+        })
+      console.log(info +' supprimée');
     }
 
 	  articlesGlobal(){
@@ -38,7 +42,6 @@ class Edition extends Component {
               return(
               <div className="article">
                 <h2 className="title">{article.name}</h2>
-                <p>{article._id}</p>
                 <p className="supp" onClick={()=>this.deleteApi(info)}>supprimer</p>
                 <p className="edit" >editer</p>
              </div>
