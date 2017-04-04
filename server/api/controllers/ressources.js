@@ -38,7 +38,7 @@ const ressources={
 	
 	update(req,res){
 		console.log('je suis update de ressources');
-		Ressources.findByIdAndUpdate({_id:req.params.id})
+		Ressources.findByIdAndUpdate({_id:req.params.id}, {})
 		.then(data =>{
 			data.name=req.body.name,
  			data.description=req.body.description,
@@ -47,7 +47,7 @@ const ressources={
 			data.comments.auteur=req.body.auteur,
 			data.comments.body=req.body.body,
 			data.save()
-			res.status(200).send("data mis à jour");
+			res.status(200).send("data mise à jour");
 		})
 		.catch(err=>{
 			res.status(500).send("operation failed"+ err);

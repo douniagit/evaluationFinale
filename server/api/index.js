@@ -16,13 +16,13 @@ apiRoutes.get('/users', auth.requireToken, users.find);
 apiRoutes.get('/users/:id', users.findById);
 apiRoutes.post('/users/register', users.create);
 apiRoutes.delete('/users/remove/:id', users.delete);
-apiRoutes.put('/users/edit/:id', users.update);
+apiRoutes.put('/users/update/:id', users.update);
 
 //------------------Ressources--------------------
 apiRoutes.get('/ressources', ressources.find);
 apiRoutes.get('/ressources/:id', ressources.findById);
 apiRoutes.post('/ressources/create', ressources.create);
-apiRoutes.put('/ressources/edit/:id', ressources.update);
+apiRoutes.put('/ressources/update/:id', ressources.update);
 apiRoutes.delete('/ressources/remove/:id', ressources.delete);
 
 
