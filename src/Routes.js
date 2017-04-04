@@ -7,6 +7,7 @@ import Article from './Article/Article.jsx';
 import NotFound from './NotFound/NotFound.jsx';
 import HomePage from './BackOffice/HomePage.jsx';
 import Edition from './BackOffice/Edition.jsx';
+import CreationArticle from './BackOffice/CreationArticle.jsx';
 
 const Routes = (props) => (
   <Router {...props}>
@@ -16,6 +17,7 @@ const Routes = (props) => (
     <Route path="/articles" component={Article}/>
     <Route path="/admin" component={HomePage}/>
     <Route path="/edit" component={Edition}/>
+   	<Route path="/creation" component={CreationArticle}/>
     <Route path="*" component={NotFound}/>
     
   </Router>
