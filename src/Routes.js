@@ -5,6 +5,8 @@ import Connexion from './Connexion/Connexion.jsx';
 import Inscription from './Inscription/Inscription.jsx';
 import Article from './Article/Article.jsx';
 import NotFound from './NotFound/NotFound.jsx';
+import HomePage from './BackOffice/HomePage.jsx';
+import Edition from './BackOffice/Edition.jsx';
 
 const Routes = (props) => (
   <Router {...props}>
@@ -12,7 +14,10 @@ const Routes = (props) => (
     <Route path="/login" component={Connexion}/>
     <Route path="/suscribe" component={Inscription}/>
     <Route path="/articles" component={Article}/>
+    <Route path="/admin" component={HomePage}/>
+    <Route path="/edit" component={Edition}/>
     <Route path="*" component={NotFound}/>
+    
   </Router>
 );
 

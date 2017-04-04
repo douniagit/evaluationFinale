@@ -10,7 +10,7 @@ class Inscription extends React.Component{
 			<div className="inscription">
 				<Navbar/>
 				<div className='formulaire'>
-					<form action="/api/users/create" method="post">
+					<form action="/api/users/register" method="post">
 						<div>
 							<label>Votre adresse mail</label>
 							<input type="text" id="mail" name="mail" placeholder="ton mail"/>

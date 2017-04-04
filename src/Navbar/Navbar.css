@@ -46,3 +46,22 @@
   	margin-bottom: 0px;
   }
 }
+/*-------------DropDown menu---------------*/
+.menu ul ul{
+	display:none;
+	position:absolute;
+	width:150px;
+	border:2px solid white;
+	border-radius: 5px;
+	line-height: 30px;
+	background-color:#C5E5E2; 
+}
+
+.menu ul ul li{
+	margin-left:10px;
+}
+.menu ul li:hover > ul{
+	display:block;
+	display:flex;
+	flex-direction:column;
+}
