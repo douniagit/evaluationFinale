@@ -20,6 +20,7 @@ const users = {
 		Users.find({})
 		.then(data=>{
 			res.status(200).send(data);
+
 		})
 		.catch(err=>{
 			res.status(500).send("operation failed"+ err);
@@ -37,6 +38,18 @@ const users = {
 			res.status(500).send("operation failed"+ err);
 		})
 	},//ok fonctionne sur postman
+
+	findByMail(req,res){
+		console.log('Bonjour je suis le findByMail de user.');
+		//Users.find({mail: req.body.mail})
+		Users.find({mail:req.params.mail})
+		.then(data=>{
+			res.status(200).send(data);
+		})
+		.catch(err=>{
+			res.status(500).send("operation failed"+ err);
+		})
+	},
 
 	update(req,res){
 		console.log('je suis update de user');

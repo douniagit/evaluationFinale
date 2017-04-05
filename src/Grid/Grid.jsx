@@ -2,8 +2,9 @@ import React from "react";
 import Card2 from './../Card/Card2.jsx';
 import "./grid.css";
 
-class Grid extends React.Component{
 
+class Grid extends React.Component{
+	
 	render(){
 		return(
 			<div className="grid">

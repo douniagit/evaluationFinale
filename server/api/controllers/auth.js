@@ -9,12 +9,15 @@ const moment= require('moment');
 function formatPassword(user){
 
 const salt=bcrypt.genSaltSync(10);
-const hash=bcrypt.hashSync(user.mail+user.password,salt);
+const hash=bcrypt.hashSync(user.mail+user.password,salt);//mettre obligatoirement le pws, car la comparaison du crypt se fera dessus, mais on peut concat tout le mondel utilisateur
+
 return{
 	mail:user.mail,
-	hash:hash
+	firstName:user.firstName,
+	name:user.name,
+	//(mettre model user ou des elements, hash=password)
+	password:hash
 	}
-
 }
 
 function generateToken(user){
@@ -24,7 +27,7 @@ function generateToken(user){
 		iss:user.mail, //createur
 		sub:user.hash //sujet du token= hash
 	}
-	return jwt.sign(payload,'app_secret');
+	return jsonwebtoken.sign(payload,'app_secret');
 }
 
 const auth = {
@@ -36,34 +39,36 @@ const auth = {
 		newUser.save()
 		.then(data =>{
 			const token = generateToken(data);
-			res.send(token); //on renvoie au navigateur
+			res.status(200).send('operation reussi: \n' +token); //on renvoie au navigateur
 		})
 		.catch(err=>{
 			res.send(err)
-		});
+		});//ok fonctionne sur postman
 	},
 	//login
 	login (req,res){
 		Users.find({mail:req.body.mail})
 		.then(users =>{
-			if(user.length > 0 && bcrypt.compareSync(req.body.mail+req.body.password, user[0].hash)){
+			console.log(users);
+			if(users.length > 0 && bcrypt.compareSync(req.body.mail+req.body.password, users[0].hash)){	
 				const token=generateToken(users[0]);
-				res.send(token);
+				//res.status(200).send('operation reussi: \n' +token);
+				res.statut(200).redirect('/logged');
 			}
 			else{
-				res.send('wrong password or mail');
+				res.status(500).send('wrong password or mail');
 			}
 		})
 		.catch(err =>{
 				res.send(err);
-		});
+		});//ok fonctionne sur postman
 	},
 
 	//require token
 	requireToken(req,res,next){
 		const token = req.get('authorization');
 		if(!token)res.send('authorization required');
-		jwt.verify(token, 'app_secret',(err, decoded)=>{
+		jsonwebtoken.verify(token, 'app_secret',(err, decoded)=>{
 			//decoded va etre egal à payload, decode.exp .iss .iat .subject
 			if(err || decode.exp > moment().unix()) res.send('unauthorized');
 			else next();

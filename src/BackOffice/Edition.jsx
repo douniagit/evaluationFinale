@@ -51,7 +51,7 @@ class Edition extends Component {
       console.log(id +' supprimée');
     }
 
-    handleClick(){
+    handleClick(id){
       return this.setState({show:!this.state.show});
   }
 
@@ -71,12 +71,20 @@ class Edition extends Component {
                           <textarea type="text" id="name" name="name" placeholder={article.name}/>
                         </div>
                         <div>
+                          <label>lien vers source</label>
+                          <textarea type="text" id="lien" name="lien" placeholder={article.lien}/>
+                        </div>
+                        <div>
                           <label>image url</label>
                           <textarea type="text" id="images" name="images" placeholder={article.images}/>
                         </div>
                         <div>
                           <label>description</label>
                           <textarea type="text" id="description" name="description" placeholder={article.description}/>
+                        </div>
+                        <div>
+                          <label>nombres de likes</label>
+                          <textarea type="text" id="likes" name="likes" placeholder={article.likes}/>
                         </div>
                         <div className="button">
                           <button onClick={()=>this.updateApi(id)}>sauvegarder</button>

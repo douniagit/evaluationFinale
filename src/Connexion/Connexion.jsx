@@ -10,7 +10,7 @@ class Connexion extends React.Component{
 			<div className="connexion">
 				<Navbar/>
 				<div className='formulaire'>
-					<form action="/api/users" method="get">
+					<form action="/api/users/login/" method="post">
 						<div>
 							<label>mail</label>
 							<input type="text" id="mail" placeholder="ton mail"/>

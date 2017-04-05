@@ -15,7 +15,7 @@ var articles = {
             "name": "Article2",
             "description": "Quare hoc quidem praeceptum, cuiuscumque est, ad tollendam amicitiam valet; illud potius praecipiendum fuit, ut eam diligentiam adhiberemus in amicitiis comparandis, ut ne quando amare inciperemus eum, quem aliquando odisse possemus.",
             "lien": "",
-            "images": "http://images.skymetweather.com/themes/skymet/images/gallery/toplists/10-Stunning-Images-of-Clouds/1.jpg",
+            "images": "http://img.maxisciences.com/tatou/tatou-illustration_70883_w460.jpg",
             "likes":[10],
             "comments":[
                 {

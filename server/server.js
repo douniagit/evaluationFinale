@@ -16,6 +16,16 @@ app.use( function(request, response, next) {
 });
 
 app.use('/api', api);
+app.use('localhost:3000/edit', (req, res) => {
+	//res.send('vous etes redirigé');
+	console.log("redirection ok?");
+});
+
+app.use('/api', api);
+app.use('localhost:3000/logged', (req, res) => {
+	//res.send('vous etes redirigé');
+	console.log("redirection ok?");
+});
 
 app.get('*', (req, res) => {
   res.sendFile(path.resolve(__dirname, '..', 'build', 'index.html'));

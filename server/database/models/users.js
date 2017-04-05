@@ -2,13 +2,11 @@ module.exports={
 	name:{
 		type:String,
 		lowercase:true,
-		unique:true,
 		required:true
 	},
 	firstName:{
 		type:String,
 		lowercase:true,
-		unique:true,
 		required:true
 	},
 	mail:{
@@ -20,7 +18,6 @@ module.exports={
 	password:{
 		type:String,
 		lowercase:true,
-		unique:true,
 		required:true
 	}
 }

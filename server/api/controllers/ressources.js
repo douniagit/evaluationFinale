@@ -3,16 +3,19 @@
 const Ressources=require('../../database').ressources;
 
 const ressources={
-	create(req,res){
+	create(req,res, next){
 		console.log('Bonjour je suis le create de ressources');
 		let newRessource= new Ressources(req.body);
 		newRessource.save()
 		.then(data =>{
 			res.status(200).send('donnee ajoutee: \n' +data);
+			//res.redirect('/edit');
+			
 		})
 		.catch(err =>{
 			res.status(500).send('donnee failed:\n' +err);
 		})
+		res.redirect('/edit');
 	},//ok fonctionne sur postman
 
 	find(req,res){

@@ -8,6 +8,7 @@ import NotFound from './NotFound/NotFound.jsx';
 import HomePage from './BackOffice/HomePage.jsx';
 import Edition from './BackOffice/Edition.jsx';
 import CreationArticle from './BackOffice/CreationArticle.jsx';
+import HomePage2 from './UserOffice/HomePage2.jsx';
 
 const Routes = (props) => (
   <Router {...props}>
@@ -18,6 +19,7 @@ const Routes = (props) => (
     <Route path="/admin" component={HomePage}/>
     <Route path="/edit" component={Edition}/>
    	<Route path="/creation" component={CreationArticle}/>
+    <Route path="/logged" component={HomePage2}/>
     <Route path="*" component={NotFound}/> 
   </Router>
 );
