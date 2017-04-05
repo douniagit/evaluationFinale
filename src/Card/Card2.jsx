@@ -33,7 +33,7 @@ class Card2 extends React.Component{
   	articlesGlobal(){
          return this.state.articles.map(article=>{
               return(
-              <div className="Cards">
+              <div className="cards">
                 <img className="img" src={article.images} alt="img"/>
                 <h2 className="title">{article.name}</h2>
                 <p className="desc">{article.description}</p>
