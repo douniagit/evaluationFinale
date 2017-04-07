@@ -23,6 +23,10 @@ app.use('https://monboudoir.herokuapp.com/logged', (req, res) => {
 	console.log("redirection ok?");
 });
 
+app.use('https://monboudoir.herokuapp.com/admin', (req, res) => {
+	console.log("redirection ok?");
+});
+
 app.get('*', (req, res) => {
   res.sendFile(path.resolve(__dirname, '..', 'build', 'index.html'));
 });
