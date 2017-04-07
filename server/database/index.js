@@ -4,7 +4,7 @@ const users=require('./models/users');
 const ressources=require('./models/ressources');
 
 mongoose.Promise = global.Promise;
-mongoose.connect('mongodb://localhost:27017/blog-db'); 
+mongoose.connect('mongodb://yankee:tsukino21@ds155490.mlab.com:55490/monboudoir'); 
 
 mongoose.connection.on('error',err=>{
 	console.log('ERROR close MongoDB process',err)});
