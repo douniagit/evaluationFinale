@@ -1,7 +1,7 @@
 'use strict';
 
 const Users = require('../../database').users;
-const bcrypt = require('bcrypt');
+//const bcrypt = require('bcrypt');
 const jsonwebtoken= require('jsonwebtoken');
 const moment= require('moment');
 

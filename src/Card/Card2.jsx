@@ -1,5 +1,4 @@
 import React from "react";
-import articles from './../data/articles.js';
 import './Card.css';
 import axios from 'axios';
 
