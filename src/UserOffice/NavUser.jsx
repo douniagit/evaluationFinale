@@ -9,11 +9,12 @@ class NavUser extends Component {
        	 <div className="wrapper">
 						<div className="menu">
 							<ul>
-								<li><Link>ACCUEIL</Link></li>
-								<li><Link>ARTICLES</Link></li>
+								<li><Link to="/logged">ACCUEIL</Link></li>
+								<li><Link to="/viewuser">ARTICLES</Link></li>
 								<li>CONNECTE
 									<ul>
-									<li><Link>Deconnexion</Link></li>
+									<li><Link to="/profile">PROFIL</Link></li>
+									<li><Link to="/">LOGOUT</Link></li>
 									</ul>
 								</li>
 							</ul>

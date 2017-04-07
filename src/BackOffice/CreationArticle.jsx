@@ -12,22 +12,22 @@ class CreationArticle extends Component {
        	<NavAdmin/>
 			<h1> CREER UN ARTICLE</h1>
 				<form action="/api/ressources/create" method="post">
-						<div>
-							<label>titre</label>
-							<textarea type="text" id="name" name="name" placeholder="titre de l'article"/>
+						<div className="formulaire">
+							<div>
+								<label>titre</label>
+								<textarea type="text" id="name" name="name" placeholder="titre de l'article"/>
+							</div>
+							<div>
+								<label>image url</label>
+								<textarea type="text" id="images" name="images" placeholder="importe ton image"/>
+							</div>
+							<div>
+								<label>description</label>
+								<textarea type="text" id="description" name="description" placeholder="ecris ton article"/>
+							</div>
 						</div>
-						<div>
-							<label>image url</label>
-							<textarea type="text" id="images" name="images" placeholder="importe ton image"/>
-						</div>
-						<div>
-							<label>description</label>
-							<textarea type="text" id="description" name="description" placeholder="ecris ton article"/>
-						</div>
-						<div className="button">
+						<div className="ajout">
 							<button type="submit" value="submit">sauvegarder</button>
-						</div>
-						<div className="button">
 							<button type="reset" value="reset">annuler</button>
 						</div>
 					</form>

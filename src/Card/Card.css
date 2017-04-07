@@ -14,7 +14,7 @@
 }
 
 .cards {
-  width: 400px;
+  width: 390px;
   height: 400px;
   margin-bottom:50px;
   background-color: white;
@@ -46,17 +46,16 @@
   }
 
 .title {
-  width: 90%;
+  width: 100%;
   height: 40px;
-  font-size: 18px;
+/*  padding-top:20px;
+*/  font-size: 18px;
   font-weight: 600;
-  text-align: left;
-  margin: 20px 0 0 0;
-  border:2px solid red;
+  text-align: center;
+  margin: 40px 0 0 0;
 }
 
 .desc {
-  border:2px solid red;
   width: 90%;
   height: 150px;
   font-size: 14px;
@@ -82,4 +81,9 @@ button{
 }
 .hide-false{
   display:none;
+}
+.artcontent{
+  display:flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
 }

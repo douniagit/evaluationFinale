@@ -65,3 +65,34 @@
 	display:flex;
 	flex-direction:column;
 }
+/*------------iframes------------------*/
+.iframe{
+	display:flex;
+	align-items: center;
+	justify-content: space-around;
+}
+.fa-trash,.fa-pencil{
+	color:#C5E5E2;
+	font-size:30px;
+	transition:0.2s ease-in-out;
+}
+.fa:hover{
+	color:#D20064;
+	cursor:pointer;
+}
+/*--------------formulaire------------------*/
+.formulaire{
+	height:10vh;
+	display:flex;
+	align-items: center;
+	justify-content: space-around;
+}
+
+.ajout{
+	display:flex;
+	justify-content: center;
+	margin:50px;
+}
+button{
+	margin:20px;
+}

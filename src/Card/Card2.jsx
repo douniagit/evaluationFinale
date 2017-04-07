@@ -59,8 +59,12 @@ class Card2 extends React.Component{
         </div>
         <div className="bouton-article">
           <button onClick={this.handleClick.bind(this)}>TOUS LES ARTICLES</button>
-            <div className={"hide-"+this.state.show}>{this.articlesGlobal()}</div>
-        </div>
+          </div>
+         
+            <div className={"hide-"+this.state.show}>
+               <div className="artcontent">
+                {this.articlesGlobal()}</div>
+              </div>
       </div>
       
     )

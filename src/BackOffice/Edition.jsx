@@ -24,22 +24,21 @@ class Edition extends Component {
       axios.get(`/api/ressources`)
         .then(data=>{
         this.setState({articles:data.data});
-        //console.log(this.state.articles);
        });
     }
 
     
     updateApi(id,req){
-      axios.put(`/api/ressources/update/`+ id, {})
-      // axios({
-      //   method: 'put',
-      //   url: `/api/ressources/update/`+ id,
-      //   data: {
-      //     name: req.body.name,
-      //     images: req.body.images,
-      //     description:req.body.description
-      //   } ne fonctionne pas
-      // });
+     // axios.put(`/api/ressources/update/`+ id, {})
+      axios({
+        method: 'put',
+        url: `/api/ressources/update/`+ id,
+        data: {
+          name: req.body.name,
+          images: req.body.images,
+          description:req.body.description
+        } //ne fonctionne pas
+      });
     }
 
 
@@ -61,18 +60,16 @@ class Edition extends Component {
            const id = article._id;
               return(
               <div className="article">
-                <h2 className="title">{article.name}</h2>
-                <p className="supp" onClick={()=>this.deleteApi(id)}>supprimer</p>
-                <p className="edit" onClick={()=>this.handleClick(id)}>editer</p>
+                <h2 className="title" style={{backgroundColor:"lightGrey"}}>{article.name}</h2>
+                <div className='iframe'>
+                <a onClick={()=>this.deleteApi(id)}><i className="fa fa-trash" aria-hidden="true">Supprimer {article.name}</i></a>
+                <a  onClick={()=>this.handleClick(id)}><i className="fa fa-pencil" aria-hidden="true">Editer {article.name}</i></a>
+                  </div>
                   <div className={"hide-"+this.state.show}>
-                    <form action={`/api/ressources/update/`+id} method="put">
+                    <form action={`/api/ressources/update/`+id} method="put" className="formulaire">
                         <div>
                           <label>titre</label>
                           <textarea type="text" id="name" name="name" placeholder={article.name}/>
-                        </div>
-                        <div>
-                          <label>lien vers source</label>
-                          <textarea type="text" id="lien" name="lien" placeholder={article.lien}/>
                         </div>
                         <div>
                           <label>image url</label>
@@ -81,10 +78,6 @@ class Edition extends Component {
                         <div>
                           <label>description</label>
                           <textarea type="text" id="description" name="description" placeholder={article.description}/>
-                        </div>
-                        <div>
-                          <label>nombres de likes</label>
-                          <textarea type="text" id="likes" name="likes" placeholder={article.likes}/>
                         </div>
                         <div className="button">
                           <button onClick={()=>this.updateApi(id)}>sauvegarder</button>
@@ -104,8 +97,10 @@ class Edition extends Component {
 				<div className="board">
 				{this.articlesGlobal()}
 				</div>
+        <div className="ajout">
 				<Link to="/creation"><button>ajouter article</button></Link>
-       	<Footer/>
+       	</div>
+        <Footer/>
       </div>
     );
   }

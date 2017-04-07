@@ -1,9 +1,5 @@
 import React from "react";
-import Navbar from '../Navbar/Navbar.jsx';
-import Footer from '../Footer/Footer.jsx';
-import datas from '../data/articles.js';
 import axios from 'axios';
-//import NotFound from '../NotFound/NotFound.jsx';
 
 class Article extends React.Component{
 
@@ -32,6 +28,8 @@ class Article extends React.Component{
                 <img className="img" src={article.images} alt="img"/>
                 <h2 className="title">{article.name}</h2>
                 <p className="desc">{article.description}</p>
+                <p className="date"> publication: {article.date}</p>
+                <button>en savoir plus</button>
              </div>
              )
           })
@@ -40,23 +38,13 @@ class Article extends React.Component{
 
 
 	render(){
-			// const id=this.props.params.id;
-		// const articleX = datas.filter((data)=> data.id === id)[0];
-		// 	if(!articleX){
-		// 		return <NotFound/>;
-		// 	}
-
+			
 		return(
-			<div className="article">
-				<Navbar/>
-				{this.articlesGlobal()}
-				{/*<div className="articleContent">
-					<h1>test</h1>
-					<img src={`/img/${articleX.images}`} alt="x"/>
-					<h2>{articleX.name}</h2>
-					<p className="desc">{articleX.description}</p>
-				</div>*/}
-				<Footer/>
+			<div className="wrapArticle">
+				<h1> TOUS LES ARTICLES DU BLOG</h1>
+				<div className="article" style={{display:"flex", flexFlow:"row wrap", justifyContent:"center"}}>
+					{this.articlesGlobal()}
+				</div>
 			</div>
 		)
 	}

@@ -10,13 +10,13 @@ class NavAdmin extends Component {
 						<div className="menu">
 							<ul>
 								<li><Link to="/admin">ACCUEIL</Link></li>
-								<li><Link>ARTICLES</Link></li>
+								<li><Link to="/viewarticles">ARTICLES</Link></li>
 								<li>ADMINISTRATION
 									<ul>
 									<li><Link to="/edit">Mes articles</Link></li>
-									<li><Link>Profil</Link></li>
+									<li><Link to="/profile">Profil</Link></li>
 									<li><Link>Commentaires</Link></li>
-									<li><Link>Deconnexion</Link></li>
+									<li><Link to="/">Deconnexion</Link></li>
 									</ul>
 								</li>
 							</ul>
