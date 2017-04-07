@@ -16,10 +16,10 @@ app.use( function(request, response, next) {
 });
 
 app.use('/api', api);
-app.use('localhost:3000/edit', (req, res) => {
+app.use('https://monboudoir.herokuapp.com/edit', (req, res) => {
 	console.log("redirection ok?");
 });
-app.use('localhost:3000/logged', (req, res) => {
+app.use('https://monboudoir.herokuapp.com/logged', (req, res) => {
 	console.log("redirection ok?");
 });
 
