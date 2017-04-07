@@ -10,7 +10,7 @@ class Connexion extends React.Component{
 			<div className="connexion">
 				<Navbar/>
 				<div className='formulaire'>
-					<form action="/api/users/login/" method="post">
+					<form action="/api/users/login" method="post" Authorization="Bearer Access-Token">
 						<div>
 							<label>mail</label>
 							<input type="text" id="mail" placeholder="ton mail"/>

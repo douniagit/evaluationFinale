@@ -29,7 +29,6 @@ const users = {
 
 	findById(req,res){
 		console.log('Bonjour je suis le findById de user.');
-		//Users.find({mail: req.body.mail})
 		Users.find({_id:req.params.id})
 		.then(data=>{
 			res.status(200).send(data);
@@ -41,10 +40,12 @@ const users = {
 
 	findByMail(req,res){
 		console.log('Bonjour je suis le findByMail de user.');
-		//Users.find({mail: req.body.mail})
-		Users.find({mail:req.params.mail})
-		.then(data=>{
-			res.status(200).send(data);
+		Users.find({mail:req.body.mail})
+		.then(users=>{
+			if(users.mail === req.body.mail){
+			res.status(200).send('operation succeed '+users);
+			}
+			res.redirect('/logged');
 		})
 		.catch(err=>{
 			res.status(500).send("operation failed"+ err);
@@ -69,6 +70,7 @@ const users = {
 	}, //ok fonctionne sur postman			
 
 	delete(req,res){
+		console.log('je suis delete de user');
 		Users.findByIdAndRemove({_id:req.params.id})
 		.then(data=>{
 			res.status(200).json("profil supprimé" + data);
