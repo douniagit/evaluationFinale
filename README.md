@@ -16,14 +16,19 @@ site responsive
 
 compte rendu des anomalies:
 en front
-	>le put pour update les articles, ne fonctionne pas sur le front, mais ok postman
-	>page article individuelle et page profil, non stylisée et manque navbar
-	>partie user, il manque le post de commentaires et like sur articles
-	>la sauvegarde de brouillon pas realisée
+
+*le put pour update les articles, ne fonctionne pas sur le front, mais ok postman
+
+*page article individuelle et page profil, non stylisée et manque navbar
+
+*partie user, il manque le post de commentaires et like sur articles
+
+*la sauvegarde de brouillon pas realisée
 
 en back
-	>le stockage du token pas reussi à etre fait car, je ne sais pas où mettre le l'authorisation dans le header niveau front (postman ok)
-	>le hash a été fait dans le middleware auth.js, mais j'arrivais pas à decrypter le hash avec bcrypt pour le login. Consequence, utilisation du middleware auth2.js sans cryptage.
+*le stockage du token pas reussi à etre fait car, je ne sais pas où mettre le l'authorisation dans le header niveau front (postman ok)
+
+*le hash a été fait dans le middleware auth.js, mais j'arrivais pas à decrypter le hash avec bcrypt pour le login. Consequence, utilisation du middleware auth2.js sans cryptage.
 
 
 
