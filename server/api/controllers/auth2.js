@@ -30,7 +30,7 @@ app.set('superSecret', config.secret);
           if (user) {
             console.log(user);
             if (user.password != req.body.password) {
-              res.json({ success: false, message: 'Authentication failed. Wrong password.' });
+              res.json({ success: false, message: 'failed Wrong password.' });
             } 
             else if (admin.password === req.body.password && admin.mail === req.body.mail) {
               res.redirect('/admin');
@@ -45,7 +45,7 @@ app.set('superSecret', config.secret);
             }   
           }
           if (!user) {
-                res.json({ success: false, message: 'Authentication failed. User not found.' });
+                res.json({ success: false, message: ' failed. User not found.' });
               }
        })
         .catch(err =>{

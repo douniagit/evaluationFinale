@@ -48,7 +48,7 @@ const ressources={
 			data.comments.auteur=req.body.auteur,
 			data.comments.body=req.body.body,
 			data.save()
-			res.status(200).send("data mise à jour");
+			res.status(200).send("data updated");
 		})
 		.catch(err=>{
 			res.status(500).send("operation failed"+ err);
@@ -58,7 +58,7 @@ const ressources={
 	delete(req,res){
 		Ressources.remove({_id:req.params.id})
 		.then(data=>{
-			res.status(200).send("article supprimé" + data);
+			res.status(200).send("deleted article" + data);
 		})
 		.catch(err=>{
 			res.status(500).send("operation failed"+ err);

@@ -68,7 +68,7 @@ const users = {
 			user.avatar=req.body.avatar,
 			user.mail=req.body.mail,
 			user.save()
-			res.status(200).send("user mis à jour" + user);
+			res.status(200).send("updated user" + user);
 		})
 		.catch(err=>{
 			res.status(500).send("operation failed"+ err)
@@ -79,7 +79,7 @@ const users = {
 		console.log('je suis delete de user');
 		Users.findByIdAndRemove({_id:req.params.id})
 		.then(data=>{
-			res.status(200).json("profil supprimé" + data);
+			res.status(200).json("deleted profil" + data);
 		}) 
 		.catch(err=>{
 			res.status(500).send("operation failed"+ err);

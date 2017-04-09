@@ -56,7 +56,7 @@ function generateToken(user){
 				if(users.length >0 && jsonwebtoken.verify(token, app.get('superSecret'))){
 					const token=generateToken(users);
 					console.log(token);					
-					res.status(200).send('operation reussi: \n' + token);
+					res.status(200).send('operation succeed: \n' + token);
 					//res.statut(200).redirect('/logged');
 				}
 				else{
