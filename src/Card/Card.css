@@ -12,7 +12,9 @@
   width:100%;
   text-align: center;
 }
-
+a{
+  text-decoration: none;
+}
 .cards {
   width: 390px;
   height: 400px;
@@ -73,6 +75,10 @@ button{
   border-radius:10px;
   font-weight: 600;
   border:none;
+  transition:0.1s ease-in-out;
+}
+button:hover{
+  background-color:#ba1d66;
 }
 .bouton-article{
   display:flex;

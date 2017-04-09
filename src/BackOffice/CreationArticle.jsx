@@ -28,7 +28,7 @@ class CreationArticle extends Component {
 						</div>
 						<div className="ajout">
 							<button type="submit" value="submit">sauvegarder</button>
-							<button type="reset" value="reset">annuler</button>
+							<button type="reset" value="reset">effacer</button>
 						</div>
 					</form>
        	<Footer/>

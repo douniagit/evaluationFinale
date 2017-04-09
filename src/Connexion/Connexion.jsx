@@ -14,11 +14,11 @@ class Connexion extends React.Component{
 						<div className="form2">
 						<div>
 							<label>mail</label>
-							<input type="text" id="mail" placeholder="ton mail"/>
+							<input type="text" id="mail" name="mail" placeholder="ton mail"/>
 						</div>
 						<div>
 							<label>Mot de passe</label>
-							<input type="text" id="password" placeholder="ton password"/>
+							<input type="password" id="password" name="password" placeholder="ton password"/>
 						</div>
 					</div>
 						<div className="button">

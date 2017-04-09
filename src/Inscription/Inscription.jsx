@@ -25,7 +25,7 @@ class Inscription extends React.Component{
 						</div>
 						<div>
 							<label>Renseignez un nouveau mot de passe</label>
-							<input type="text" id="password" name="password" placeholder="ton mot de passe"/>
+							<input type="password" id="password" name="password" placeholder="ton mot de passe"/>
 						</div>
 						<div className="button">
 							<button type="submit">INSCRIPTION</button>

@@ -5,7 +5,7 @@ const ressources= require('./controllers/ressources');
 const bodyParser=require('body-parser');
 const auth = require('./controllers/auth');
 const { Router } = require('express');
-var auth2=require('./controllers/auth2');
+const auth2=require('./controllers/auth2');
 const apiRoutes = new Router();
 
 apiRoutes.use(bodyParser.urlencoded({extended:false}));
@@ -14,12 +14,13 @@ apiRoutes.use(bodyParser.json());
 //------------------users--------------------
 apiRoutes.get('/users', users.find);
 apiRoutes.get('/users/:id', users.findById);
-apiRoutes.get('/users', auth2.verify);
-apiRoutes.post('/users/login', auth2.findOne);
-//apiRoutes.post('/users/login', auth2.findOne);
-//apiRoutes.post('/users/login', users.findByMail); //fake pour tester la route logged
-//apiRoutes.post('/users/login',auth.login);
-apiRoutes.post('/users/register',auth.register);
+apiRoutes.post('/users/register',auth2.register);
+apiRoutes.post('/users/login',auth2.login);
+
+//avec du hash - n'arrive pas à decrypter le salt - et n'arrive pas à stocker token
+//apiRoutes.post('/users/register',auth.register);
+//apiRoutes.post('/users/login', auth.login);
+
 apiRoutes.put('/users/update/:id', users.update);
 apiRoutes.delete('/users/remove/:id', users.delete);
 
