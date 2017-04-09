@@ -14,7 +14,7 @@ class NavAdmin extends Component {
 								<li>ADMINISTRATION
 									<ul>
 									<li><Link to="/edit">Mes articles</Link></li>
-									<li><Link to="/profile">Profil</Link></li>
+									<li><Link to="/profile/">Profil</Link></li>
 									<li><Link>Commentaires</Link></li>
 									<li><Link to="/">Deconnexion</Link></li>
 									</ul>

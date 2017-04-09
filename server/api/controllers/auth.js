@@ -30,24 +30,14 @@ function generateToken(user){
 	console.log(jsonwebtoken.sign);
 }
 
-const user = {
-	mail: 'dounia@gmail.com',
-	password: 'YOLO'
-}
-
-const token = generateToken(user);
-
-console.log(token);
 
 	const auth = {
-	//s'inscrire
 		register(req,res){
-		//new user est une instance de User, cette ligne appel la 
-			const newUser= new Users(formatPassword(req.body));
+			//const newUser= new Users(formatPassword(req.body));
+			const newUser= new Users (req.body);
 			newUser.save()
 			.then(data =>{
-				//const token = generateToken(data);
-				res.status(200).send('operation reussi: \n' +token); //on renvoie au navigateur
+				res.redirect('/login');
 			})
 			.catch(err=>{
 				res.send(err)
@@ -70,24 +60,25 @@ console.log(token);
 		// 	})
 		// 	.catch(err =>{
 		// 			res.send(err);
-		// 	});//la condition if ne marche pas sur postman
+		// 	});//la condition if avec bcrypt ne marche pas sur postman
 		// },
+//---------------------avec jwt---------------------------------
 		login (req,res){
-		Users.find({mail:req.body.mail})
-		.then(users =>{
-			//const token=generateToken(users[0]);
-			if(users.length >0 && jsonwebtoken.verify(token,'app_secret', {alg: ['HS256']})){
-				res.send(token);
-				console.log(token);
-			}
-			else{
-				res.send('wrong password or mail');
-			}
-		})
-		.catch(err =>{
-				res.send(err);
-		});
-	},
+			Users.find({mail:req.body.mail})
+			.then(user =>{
+				if(user.mail == req.body.mail){
+					res.send(user);
+					console.log(user);
+					//res.redirect('/logged');
+				}
+				else{
+					res.send('wrong password or mail');
+				}
+			})
+			.catch(err =>{
+					res.send(err);
+			});
+		},
 
 	//require token
 		requireToken(req,res,next){
@@ -99,6 +90,6 @@ console.log(token);
 			else next();
 		})
 	}
-}
+}	
 
 module.exports = auth;

@@ -1,33 +1,52 @@
 import React from "react";
-import Navbar from '../Navbar/Navbar.jsx';
-import Footer from '../Footer/Footer.jsx';
-import datas from '../data/articles.js';
-//import axios from 'axios';
-import NotFound from '../NotFound/NotFound.jsx';
+import axios from 'axios';
 
-class Article extends React.Component{
+class ArticleUnic extends React.Component{
+	
+	constructor(props){
+    super(props);
+    this.state={
+      info:[]
+    }
+    this.callingApi();
+	}
 
+
+	callingApi(){
+    	axios.get(`/api/ressources`)
+    	.then(data=>{
+			this.setState({info:data.data});
+      //console.log(this.state.info);
+		 });
+		}
 
 
 	render(){
-			const id=this.props.params.id;
-		const articleX = datas.filter((data)=> data.id === id)[0];
-			if(!articleX){
-				return <NotFound/>;
-			}
+        const id = this.props.params.id;
+       // const articleX=this.state.info.filter(article => article._id === id)[0];
+         const articleX= this.state.info.map((article)=>{
+              if(article._id === id) {
+              return(
+                <div className="article">
+                <h2 className="title">{article.name}</h2>
+                <img src={article.images} alt="img"/>
+                <p className="desc">{article.description}</p>
+               <h3>Commentaires <span>likes:{article.likes}</span></h3>
+                <p className="auteur">auteur: {article.comments.auteur}</p>
+              <p className="comments">comment: {article.comments.body}</p>
+             </div>
+             );
+            }
+          });
+
 
 		return(
 			<div className="article">
-				<Navbar/>
 				<div className="articleContent">
-					<h1>test</h1>
-					<img src={`/img/${articleX.images}`} alt="x"/>
-					<h2>{articleX.name}</h2>
-					<p className="desc">{articleX.description}</p>
+          {articleX}
 				</div>
-				<Footer/>
 			</div>
 		)
 	}
 }
-export default Article;
+export default ArticleUnic;

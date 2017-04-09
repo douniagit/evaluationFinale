@@ -1,6 +1,7 @@
 import React from "react";
 import './Card.css';
 import axios from 'axios';
+import {Link} from 'react-router';
 
 class Card2 extends React.Component{
 
@@ -18,9 +19,9 @@ class Card2 extends React.Component{
  	callingApi(){
     axios.get(`/api/ressources`)
     	.then(data=>{
-		 	console.log(data);
+		 //	console.log(data);
 			this.setState({articles:data.data});
-			console.log(this.state.articles);
+			//console.log(this.state.articles);
 		 });
 	}
 
@@ -32,11 +33,12 @@ class Card2 extends React.Component{
   	articlesGlobal(){
          return this.state.articles.map((article, i )=>{
               return(
+                <Link to={"/detailarticle/"+article._id} className="list-group-item" key={article._id} activeClassName="active">
               <div key={i} className="cards">
                 <img className="img" src={article.images} alt="img"/>
                 <h2 className="title">{article.name}</h2>
                 <p className="desc">{article.description}</p>
-             </div>
+             </div></Link>
              )
           })
       }

@@ -19,5 +19,8 @@ module.exports={
 		type:String,
 		lowercase:true,
 		required:true
+	},
+	admin:{
+		type:Boolean
 	}
 }

@@ -36,7 +36,8 @@ class Profile extends Component {
   render() {
     return (
       <div className="Profile">
-			{this.infoUsers()}				
+        <h1> Profil global des utilisateurs</h1>
+			   {this.infoUsers()}				
       </div>
     );
   }

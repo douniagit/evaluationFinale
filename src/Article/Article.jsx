@@ -1,5 +1,6 @@
 import React from "react";
 import axios from 'axios';
+import {Link} from 'react-router';
 
 class Article extends React.Component{
 
@@ -12,24 +13,26 @@ class Article extends React.Component{
     this.articlesGlobal= this.articlesGlobal.bind(this);
 	}
 
+
 	callingApi(){
     	axios.get(`/api/ressources`)
     	.then(data=>{
-		 	console.log(data);
+		 //	console.log(data);
 			this.setState({articles:data.data});
-			console.log(this.state.articles);
+			//console.log(this.state.articles);
 		 });
 		}
 
 	articlesGlobal(){
-         return this.state.articles.map((article, i )=>{
+         return this.state.articles.map((article)=>{
               return(
-              <div key={i} className="cards">
+              	
+                <div className="cards">
                 <img className="img" src={article.images} alt="img"/>
                 <h2 className="title">{article.name}</h2>
                 <p className="desc">{article.description}</p>
                 <p className="date"> publication: {article.date}</p>
-                <button>en savoir plus</button>
+               <Link to={"/detailarticle/"+article._id} key={article._id} activeClassName="active"> <button>en savoir plus</button></Link>
              </div>
              )
           })

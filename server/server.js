@@ -16,15 +16,22 @@ app.use( function(request, response, next) {
 });
 
 app.use('/api', api);
-app.use('https://monboudoir.herokuapp.com/edit', (req, res) => {
-	console.log("redirection ok?");
-});
-app.use('https://monboudoir.herokuapp.com/logged', (req, res) => {
-	console.log("redirection ok?");
-});
 
-app.use('https://monboudoir.herokuapp.com/admin', (req, res) => {
-	console.log("redirection ok?");
+//app.use('https://monboudoir.herokuapp.com/edit');
+app.use('http://localhost:3000/edit', (req, res) => {
+	console.log("redirection edit");
+});
+//app.use('https://monboudoir.herokuapp.com/logged');
+app.use('http://localhost:3000/logged', (req, res) => {
+	console.log("redirection logged");
+});
+//app.use('https://monboudoir.herokuapp.com/login');
+app.use('http://localhost:3000/login', (req, res) => {
+  console.log("redirection login");
+});
+//app.use('https://monboudoir.herokuapp.com/admin');
+app.use('http://localhost:3000/admin', (req, res) => {
+	console.log("redirection admin");
 });
 
 app.get('*', (req, res) => {

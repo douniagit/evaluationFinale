@@ -11,10 +11,10 @@ class NavUser extends Component {
 							<ul>
 								<li><Link to="/logged">ACCUEIL</Link></li>
 								<li><Link to="/viewuser">ARTICLES</Link></li>
-								<li>CONNECTE
+								<li>MON ESPACE
 									<ul>
-									<li><Link to="/profile">PROFIL</Link></li>
-									<li><Link to="/">LOGOUT</Link></li>
+									<li><Link to="/profile/:id">Profil</Link></li>
+									<li><Link to="/">Deconnexion</Link></li>
 									</ul>
 								</li>
 							</ul>

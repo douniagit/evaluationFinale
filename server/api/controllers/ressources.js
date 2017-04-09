@@ -8,15 +8,13 @@ const ressources={
 		let newRessource= new Ressources(req.body);
 		newRessource.save()
 		.then(data =>{
-			res.status(200).send('donnee ajoutee: \n' +data);
-			//res.redirect('/edit');
-			
+			res.status(200).redirect('/edit');	
 		})
 		.catch(err =>{
 			res.status(500).send('donnee failed:\n' +err);
 		})
-		res.redirect('/edit');
-	},//ok fonctionne sur postman
+		
+	},//ok fonctionne sur postman et sur front
 
 	find(req,res){
 		console.log('Bonjour je suis find de ressources');
@@ -27,7 +25,7 @@ const ressources={
 		.catch(err=>{
 			res.status(500).send("operation failed"+ err);
 		})
-	},//on fonctionne sur postman
+	},//on fonctionne sur postman et sur front
 
 	findById(req,res){
 		Ressources.find({_id:req.params.id})
@@ -37,7 +35,7 @@ const ressources={
 		.catch(err=>{
 			res.status(500).send("operation failed"+ err);
 		})
-	},//on fonction sur postman
+	},//on fonctionne sur postman
 	
 	update(req,res){
 		console.log('je suis update de ressources');
@@ -54,12 +52,10 @@ const ressources={
 		})
 		.catch(err=>{
 			res.status(500).send("operation failed"+ err);
-		})
-		
-	},
+		})	
+	}, //ok fonctionne sur postman seulement
 
 	delete(req,res){
-		// Ressources.remove({name:req.params.name})
 		Ressources.remove({_id:req.params.id})
 		.then(data=>{
 			res.status(200).send("article supprimé" + data);
@@ -67,7 +63,7 @@ const ressources={
 		.catch(err=>{
 			res.status(500).send("operation failed"+ err);
 		})
-	}//ok fonctionne sur postman
+	}//ok fonctionne sur postman et sur front
 }
 
 
